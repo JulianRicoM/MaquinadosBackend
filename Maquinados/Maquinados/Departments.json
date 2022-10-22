@@ -1,0 +1,18 @@
+[
+    {
+        "pk": 1,
+        "model": "client.Department",
+        "fields": {
+            "department": "ANTIOQUIA",
+            "country": 1
+        }
+    },
+    {
+        "pk": 2,
+        "model": "client.Department",
+        "fields": {
+            "department": "VALLE DEL CAUCA",
+            "country": 1
+        }
+    }
+]

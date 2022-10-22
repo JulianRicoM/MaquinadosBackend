@@ -1,0 +1,18 @@
+[
+    {
+        "pk": 1,
+        "model": "client.City",
+        "fields": {
+            "city": "MEDELLIN",
+            "department": 1
+        }
+    },
+    {
+        "pk": 2,
+        "model": "client.City",
+        "fields": {
+            "city": "TULUA",
+            "department": 2
+        }
+    }
+]
