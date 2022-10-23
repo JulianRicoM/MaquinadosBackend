@@ -43,12 +43,15 @@ class Person(BaseModel):
     email = models.EmailField(verbose_name = _('Email'), max_length = 40)
     address = models.CharField(verbose_name = _('Address'), max_length = 20)
     
+    def __str__(self):
+        return self.name
+    
 # --------------------------------- CLIENT --------------------------------
 class Client(Person):
-    nit = models.CharField(verbose_name = _("Nit"), max_length = 30, primary_key = True)
-    country = models.ForeignKey(Country, on_delete = models.CASCADE)
-    departament = models.ForeignKey(Department, on_delete = models.CASCADE)
-    city = models.ForeignKey(City, on_delete = models.CASCADE)
+    nit = models.CharField(verbose_name = _("Nit"), max_length = 30, unique = True)
+    country_id = models.ForeignKey(Country, on_delete = models.CASCADE)
+    departament_id = models.ForeignKey(Department, on_delete = models.CASCADE)
+    city_id = models.ForeignKey(City, on_delete = models.CASCADE)
     
     def __str__(self):
         return self.name

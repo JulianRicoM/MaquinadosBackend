@@ -1,4 +1,4 @@
-from multiprocessing import context
+
 from django.http import Http404
 
 from rest_framework import generics
@@ -9,8 +9,8 @@ from rest_framework.decorators import api_view
 from .models import Item
 from .serializer import ItemSerializer
 
-""" If the method is POST, the class expects a body of type Client and will create the client """
-""" If the method is GET the function will return a clients list """
+""" If the method is POST, the class expects a body of type Item and will create the Item """
+""" If the method is GET the function will return a Item list """
 class ItemList(generics.ListCreateAPIView):
     serializer_class =  ItemSerializer
     queryset = Item.objects.filter(is_active = True)
@@ -20,14 +20,14 @@ class ItemList(generics.ListCreateAPIView):
         serializer = ItemSerializer(queryset, many = True)
         return Response(serializer.data)
 
-""" If the method is GET, the function expects an id and return a Client """
-""" If the method is PUT, the function expect a body of type Client and the client will be edited """
+""" If the method is GET, the function expects an id and return a Item """
+""" If the method is PUT, the function expect a body of type Item and the Item will be edited """
 @api_view(['GET', 'PUT'])
 def ItemDetails(request, id):
     try:
         item =  Item.objects.get(pk = id)
     except Item.DoesNotExist as e:
-        return Response( status = status.HTTP_404_NOT_FOUND, data = e.error)
+        return Response( status = status.HTTP_404_NOT_FOUND)
     
     if request.method == 'GET':
         serializer = ItemSerializer(item, context = {'request': request})
