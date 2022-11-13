@@ -5,8 +5,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from .models import Quote
-from .serializer import QuoteSerializer
+from .models import Quote, StatusQuote
+from .serializer import QuoteSerializer, StatusQuoteSerializer
 
 # If the method is POST, the class expects a body of type Quote and will create the Quote 
 # If the method is GET the function will return a Quote list 
@@ -30,7 +30,7 @@ def QuoteDetails(request, id):
     
     if request.method == 'GET':
         serializer = QuoteSerializer(quote, context = {'request': request})
-        return Response(status = status.HTTP_200_OK, data = serializer.data, context = {'request': request})
+        return Response(status = status.HTTP_200_OK, data = serializer.data)
     
     if request.method == 'PUT':
         serializer = QuoteSerializer(quote, data = request.data, context = {'request': request})
@@ -42,9 +42,21 @@ def QuoteDetails(request, id):
 # Only the get method is allowed and it returns the list of quotes for a specific client        
 @api_view(['GET'])
 def QuoteByClient(request, nit):
+        
     try:
-        quotes = Quote.objects.filter(nit = nit)
+        quotes = Quote.objects.filter(client_id__nit = nit)
     except Quote.DoesNotExist as e:
         return Response(status = status.HTTP_404_NOT_FOUND)
     
-    serialiser = QuoteSerializer(quotes, many = True)
+    serializer = QuoteSerializer(quotes,  context = {'request': request}, many = True)
+    return Response(status = status.HTTP_200_OK, data = serializer.data)
+
+class StatusQuoteList(generics.ListCreateAPIView):
+    serializer_class = StatusQuoteSerializer
+    queryset = StatusQuote.objects.all()
+    
+    def list(self, request):
+        queryset = self.get_queryset()
+        serializer = StatusQuoteSerializer(queryset, many = True)
+        return Response(serializer.data)
+        
