@@ -2,9 +2,11 @@ from rest_framework import serializers
 
 from .models import Quote, StatusQuote
 from Applications.client.serializer import ClientSerializer
+from Applications.item.serializer import ItemSerializer
 
 class QuoteSerializer(serializers.ModelSerializer):
-    #client_id = ClientSerializer() -> uncomment if you want to throw the customer info in the quote
+    client_id = ClientSerializer()
+    item_id = ItemSerializer()
     class Meta:
         model = Quote
         fields = '__all__'

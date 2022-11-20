@@ -2,6 +2,8 @@ from rest_framework import serializers
 
 from .models import Order, OrderProcess, OrderStatus, Currency, PaymentMethod
 
+from  Applications.quote.serializer import QuoteSerializer
+
 class OrderProcessSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderProcess
@@ -27,6 +29,7 @@ class OrderSerializer(serializers.ModelSerializer):
     status_id = OrderStatusSerializer()
     currency = CurrencySerializer()
     payment_method = PaymentSerializer()
+    quote_number = QuoteSerializer()
     class Meta:
         model = Order
         fields = '__all__'
