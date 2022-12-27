@@ -43,7 +43,7 @@ class Person(BaseModel):
     email = models.EmailField(verbose_name = _('Email'), max_length = 40)
     address = models.CharField(verbose_name = _('Address'), max_length = 20)
     country_id = models.ForeignKey(Country, on_delete = models.CASCADE)
-    departament_id = models.ForeignKey(Department, on_delete = models.CASCADE)
+    department_id = models.ForeignKey(Department, on_delete = models.CASCADE)
     city_id = models.ForeignKey(City, on_delete = models.CASCADE)
     
     def __str__(self):
