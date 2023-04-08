@@ -1,9 +1,11 @@
 from django.urls import path
 
-from .views import OrderByClient, OrderList, OrderDetail
+from .views import OrderByClient, createOrder, OrderDetail, ListOrder, getOrderProcess
 
 urlpatterns = [
-    path("", OrderList.as_view()),
+    path("", createOrder),
+    path("list", ListOrder),
     path("<int:id>/", OrderDetail),
-    path("client/<str:nit>/", OrderByClient)
+    path("process", getOrderProcess ),
+    path("client/<str:nit>/", OrderByClient),
 ]

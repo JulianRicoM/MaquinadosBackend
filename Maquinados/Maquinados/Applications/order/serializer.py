@@ -23,8 +23,13 @@ class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model = PaymentMethod
         fields = '__all__'
-
+        
 class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = '__all__'
+        
+class ListOrderSerializer(serializers.ModelSerializer):
     process_id = OrderProcessSerializer()
     status_id = OrderStatusSerializer()
     currency = CurrencySerializer()

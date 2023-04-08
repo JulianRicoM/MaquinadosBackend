@@ -4,9 +4,14 @@ from .models import Quote, StatusQuote
 from Applications.client.serializer import ClientSerializer
 from Applications.item.serializer import ItemSerializer
 
-class QuoteSerializer(serializers.ModelSerializer):
+class ListQuoteSerializer(serializers.ModelSerializer):
     client_id = ClientSerializer()
     item_id = ItemSerializer()
+    class Meta:
+        model = Quote
+        fields = '__all__'
+
+class QuoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Quote
         fields = '__all__'
