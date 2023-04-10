@@ -8,6 +8,7 @@ from Applications.quote.models import Quote
 # --------------------------------- ORDER PROCESS -------------------------------- 
 # Process in which the order is
 class OrderProcess(models.Model):
+    id_process = models.CharField(verbose_name = _('Order Process'), max_length = 20)
     order_process = models.CharField(verbose_name = _('Order Status'), max_length = 20)
     
     def __str__(self):
@@ -38,7 +39,7 @@ class PaymentMethod(models.Model):
 # --------------------------------- ORDER --------------------------------
 class Order(BaseModel):
     quote_number = models.ForeignKey(Quote, on_delete  = models.CASCADE, verbose_name = _('Quote Number'))
-    emloyee_id = models.ForeignKey(Employee, verbose_name=_("Employee"), on_delete = models.CASCADE)
+    employee_id = models.ForeignKey(Employee, verbose_name=_("Employee"), on_delete = models.CASCADE)
     payment_method = models.ForeignKey(PaymentMethod, on_delete = models.CASCADE, verbose_name = _('Payment Method'))
     discount = models.DecimalField(max_digits = 10, decimal_places = 2, verbose_name = _('Discount'))
     subtotal = models.DecimalField(max_digits = 10, decimal_places = 2, verbose_name = _('Subtotal'))

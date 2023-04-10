@@ -20,7 +20,7 @@ class Quote(BaseModel):
     item_id = models.ForeignKey(Item, verbose_name=_("Item Id"), on_delete=models.CASCADE, max_length = 10)
     quantity = models.IntegerField(verbose_name = _('Quantity'))
     total_amount = models.DecimalField(max_digits = 10, decimal_places = 2, verbose_name = _('Total Amount'))
-    expitation_date = models.DateField(verbose_name = _('Expiration Date'))
+    expiration_date = models.DateField(verbose_name = _('Expiration Date'))
     status_id = models.ForeignKey(StatusQuote, on_delete = models.CASCADE, verbose_name = _('Status'))
     
     def __str__(self):

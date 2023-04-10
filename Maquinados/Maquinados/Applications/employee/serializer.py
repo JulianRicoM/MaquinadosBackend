@@ -14,7 +14,12 @@ class EPSSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class EmployeeSerializer(serializers.ModelSerializer):
-    eps = EPSSerializer()
+    class Meta:
+        model = Employee
+        fields = '__all__'
+
+class EmployeeListSerializer(serializers.ModelSerializer):
+    eps_id = EPSSerializer()
     position = PositionSerializer()
     class Meta:
         model = Employee

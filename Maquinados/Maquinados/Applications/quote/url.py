@@ -1,10 +1,11 @@
 from django.urls import path
 
-from .views import QuoteList, QuoteByClient, QuoteDetails, StatusQuoteList
+from .views import CreateQuote, ListQuote, QuoteByClient, QuoteDetails, StatusQuoteList
 
 urlpatterns = [
-    path("", QuoteList.as_view()),
+    path("", CreateQuote),
     path("<int:id>/", QuoteDetails),
+    path("list", ListQuote),
     path("client/<str:nit>/", QuoteByClient),
     path("status/", StatusQuoteList.as_view())
 ]
