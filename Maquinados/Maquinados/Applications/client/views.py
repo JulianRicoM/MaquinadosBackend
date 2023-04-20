@@ -22,7 +22,7 @@ class ClientList(generics.ListCreateAPIView):
 # If the method is GET, the function expects an id and return a Client
 # If the method is PUT, the function expects a body of type Client and the client will be edited
 # If the method is Delete, the functions expects an id and delete the Client
-@api_view(['GET', 'PUT'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def ClientDetail(request, id):
     try:
         client = Client.objects.get(pk = id)
