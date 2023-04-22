@@ -49,7 +49,7 @@ class EPSList(generics.ListCreateAPIView):
     
 # If the method is GET, the function expects an id and return a Employee
 # If the method is PUT, the function expect a body of type Employee and the Employee will be edited 
-@api_view(['GET', 'PUT'])
+@api_view(['GET', 'PUT','DELETE'])
 def EmployeeDetails(request, id):
     try:
         employee = Employee.objects.get(pk = id)
@@ -60,13 +60,23 @@ def EmployeeDetails(request, id):
         serializer = EmployeeSerializer(employee, context = {'request': request})
         return Response(status =  status.HTTP_200_OK, data = serializer.data)
     
+    
+    
     if request.method == 'PUT':
         serializer = EmployeeSerializer(employee, data = request.data, context = {'request': request})
         
         if serializer.is_valid():
             serializer.save()
             return Response(status = status.HTTP_204_NO_CONTENT, data = serializer.data)
-        
+
+    if request.method == 'DELETE':
+            employee.delete()
+            return Response(
+                {
+                    'message': 'El cliente fue eliminado satisfactoriamente'
+                },
+                status=status.HTTP_204_NO_CONTENT
+            )        
         
 # If the method is POST, the class expects a body of type Position and will create the Position  
 # If the method is GET the function will return an Position list
