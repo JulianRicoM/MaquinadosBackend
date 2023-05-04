@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.translation import gettext as _
+from django import forms
 
 from Applications.client.models import Person
 
@@ -24,7 +25,8 @@ class Employee(Person):
     last_name = models.CharField(verbose_name = _('Last Name'), max_length =20)
     position = models.ForeignKey(Position, on_delete = models.CASCADE, verbose_name = _('Position'))
     eps_id = models.ForeignKey(Eps, on_delete =  models.CASCADE, verbose_name = 'EPS')
-    birthdate = models.DateField(verbose_name = 'Birthday')
+    birthdate = models.DateField(widget=forms.PasswordInput, verbose_name = _('Password'))
+    password = models.Pasw
     
     def __str__(self):
         return self.name

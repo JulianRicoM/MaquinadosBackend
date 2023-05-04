@@ -1,18 +1,14 @@
 from rest_framework import serializers
 
-from .models import Order, OrderProcess, OrderStatus, Currency, PaymentMethod
+from .models import Order, OrderProcess,  Currency, PaymentMethod
 
-from  Applications.quote.serializer import QuoteSerializer
+from  Applications.quote.serializer import ListQuoteSerializer
 
 class OrderProcessSerializer(serializers.ModelSerializer):
     class Meta:
         model = OrderProcess
         fields = '__all__'
 
-class OrderStatusSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = OrderStatus
-        fields = '__all__'
 
 class CurrencySerializer(serializers.ModelSerializer):
     class Meta:
@@ -31,10 +27,9 @@ class OrderSerializer(serializers.ModelSerializer):
         
 class ListOrderSerializer(serializers.ModelSerializer):
     process_id = OrderProcessSerializer()
-    status_id = OrderStatusSerializer()
     currency = CurrencySerializer()
     payment_method = PaymentSerializer()
-    quote_number = QuoteSerializer()
+    quote_number = ListQuoteSerializer()
     class Meta:
         model = Order
         fields = '__all__'
