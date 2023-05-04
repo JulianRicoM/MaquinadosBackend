@@ -12,8 +12,6 @@ class ListQuoteSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class QuoteSerializer(serializers.ModelSerializer):
-    client_id = ClientSerializer()
-    item_id = ItemSerializer()
     class Meta:
         model = Quote
         fields = '__all__'
