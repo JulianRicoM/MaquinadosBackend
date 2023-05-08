@@ -19,4 +19,4 @@ class QuoteSerializer(serializers.ModelSerializer):
 class StatusQuoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = StatusQuote
-        fields = ('status_description',)
+        fields = '__all__'
