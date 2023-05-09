@@ -14,7 +14,8 @@ class StatusTools(models.Model):
 
 # --------------------------------- TOOLS --------------------------------
 class Tools(BaseModel):
-    employee_id = models.ForeignKey(Employee, on_delete = models.CASCADE, verbose_name = _('Employee'))
+    employee_id = models.ForeignKey(Employee, on_delete = models.CASCADE, verbose_name = _('Employee'), blank=True, null=True)
+    name = models.CharField(verbose_name = _('Name'), max_length = 20)
     trademark = models.CharField(verbose_name = _('Trademark'), max_length = 20)
     dimension = models.CharField(verbose_name = _('Dimension'), max_length = 20)
     status_tool = models.ForeignKey(StatusTools, on_delete = models.CASCADE, verbose_name = _('Status Tool'))
