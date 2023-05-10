@@ -5,8 +5,9 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from .models import Order, OrderProcess
-from .serializer import OrderSerializer, ListOrderSerializer, OrderProcessSerializer
+from .models import Order, OrderProcess, PaymentMethod, Currency
+from .serializer import OrderSerializer, ListOrderSerializer, OrderProcessSerializer, PaymentSerializer
+from .serializer import CurrencySerializer
 
 
 # Only Get Method is allowed, the function will returns a Order list
@@ -94,4 +95,14 @@ def getOrderProcess(request):
     return Response(serializer.data)
     
 
+@api_view(['GET'])
+def PaymentMethods(request):
+    queryset = PaymentMethod.objects.all()
+    serializer = PaymentSerializer(queryset, many = True)
+    return Response(serializer.data)
 
+@api_view(['GET'])
+def Currencies(request):
+    queryset = Currency.objects.all()
+    serializer = CurrencySerializer(queryset, many = True)
+    return Response(serializer.data)

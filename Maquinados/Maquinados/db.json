@@ -1,0 +1,601 @@
+[
+    {
+        "model": "client.country",
+        "pk": 1,
+        "fields": {
+            "country": "COLOMBIA"
+        }
+    },
+    {
+        "model": "client.country",
+        "pk": 2,
+        "fields": {
+            "country": "ESPAÐA"
+        }
+    },
+    {
+        "model": "client.department",
+        "pk": 1,
+        "fields": {
+            "department": "ANTIOQUIA",
+            "country": 1
+        }
+    },
+    {
+        "model": "client.department",
+        "pk": 2,
+        "fields": {
+            "department": "VALLE DEL CAUCA",
+            "country": 1
+        }
+    },
+    {
+        "model": "client.city",
+        "pk": 1,
+        "fields": {
+            "city": "MEDELLIN",
+            "department": 1
+        }
+    },
+    {
+        "model": "client.city",
+        "pk": 2,
+        "fields": {
+            "city": "TULUA",
+            "department": 2
+        }
+    },
+    {
+        "model": "client.person",
+        "pk": 1,
+        "fields": {
+            "is_active": true,
+            "created_on": "2022-10-23T22:28:04.346Z",
+            "updated_on": "2023-04-21T23:59:44.244Z",
+            "name": "Ingenio San Carlos",
+            "phone_number": "321654987",
+            "email": "ingenio@gmail.com",
+            "address": "Palomestizo",
+            "country_id": 1,
+            "department_id": 2,
+            "city_id": 1
+        }
+    },
+    {
+        "model": "client.person",
+        "pk": 2,
+        "fields": {
+            "is_active": true,
+            "created_on": "2022-10-23T22:32:15.603Z",
+            "updated_on": "2022-12-28T03:10:25.475Z",
+            "name": "Julian",
+            "phone_number": "3128868008",
+            "email": "julianricomillan@gmail.com",
+            "address": "calle 42",
+            "country_id": 1,
+            "department_id": 2,
+            "city_id": 1
+        }
+    },
+    {
+        "model": "client.person",
+        "pk": 3,
+        "fields": {
+            "is_active": true,
+            "created_on": "2022-12-18T18:57:23.246Z",
+            "updated_on": "2023-04-21T23:54:56.812Z",
+            "name": "Ingenio Carmelita",
+            "phone_number": "3126574987",
+            "email": "carmelita@ingenio.com",
+            "address": "San Jose",
+            "country_id": 1,
+            "department_id": 2,
+            "city_id": 2
+        }
+    },
+    {
+        "model": "client.person",
+        "pk": 4,
+        "fields": {
+            "is_active": true,
+            "created_on": "2022-12-18T19:02:08.004Z",
+            "updated_on": "2022-12-18T19:02:08.004Z",
+            "name": "Ingenio Pichichi",
+            "phone_number": "312654987",
+            "email": "pichichi@gmail.com",
+            "address": "San Jose",
+            "country_id": 1,
+            "department_id": 2,
+            "city_id": 2
+        }
+    },
+    {
+        "model": "client.person",
+        "pk": 5,
+        "fields": {
+            "is_active": true,
+            "created_on": "2022-12-28T03:03:47.663Z",
+            "updated_on": "2022-12-28T03:03:47.663Z",
+            "name": "Camila",
+            "phone_number": "3124985754",
+            "email": "camilaruiz@gmail.com",
+            "address": "calle 42",
+            "country_id": 1,
+            "department_id": 2,
+            "city_id": 1
+        }
+    },
+    {
+        "model": "client.person",
+        "pk": 6,
+        "fields": {
+            "is_active": true,
+            "created_on": "2023-02-20T16:07:06.105Z",
+            "updated_on": "2023-02-20T16:07:06.105Z",
+            "name": "Julian",
+            "phone_number": "3117970020",
+            "email": "julianricomillan@gmail.com",
+            "address": "San Jose",
+            "country_id": 1,
+            "department_id": 2,
+            "city_id": 2
+        }
+    },
+    {
+        "model": "client.person",
+        "pk": 7,
+        "fields": {
+            "is_active": true,
+            "created_on": "2023-02-20T16:23:16.231Z",
+            "updated_on": "2023-02-20T16:23:16.231Z",
+            "name": "MaquinarÝa Pesada S.A",
+            "phone_number": "321654987",
+            "email": "maquinaria@gmail.com",
+            "address": "Calle 32",
+            "country_id": 1,
+            "department_id": 2,
+            "city_id": 2
+        }
+    },
+    {
+        "model": "client.client",
+        "pk": 1,
+        "fields": {
+            "nit": "1234567879"
+        }
+    },
+    {
+        "model": "client.client",
+        "pk": 3,
+        "fields": {
+            "nit": "987564321"
+        }
+    },
+    {
+        "model": "client.client",
+        "pk": 4,
+        "fields": {
+            "nit": "123456987"
+        }
+    },
+    {
+        "model": "client.client",
+        "pk": 7,
+        "fields": {
+            "nit": "32165498779"
+        }
+    },
+    {
+        "model": "item.material",
+        "pk": 1,
+        "fields": {
+            "description": "ACERO"
+        }
+    },
+    {
+        "model": "item.measurement_units",
+        "pk": 1,
+        "fields": {
+            "description": "PULGADAS"
+        }
+    },
+    {
+        "model": "item.item",
+        "pk": 1,
+        "fields": {
+            "is_active": true,
+            "created_on": "2022-10-23T22:31:05.084Z",
+            "updated_on": "2022-10-23T22:31:05.084Z",
+            "name": "Rosca",
+            "reference": "0",
+            "plane": "media/roscas_YkDjhr8.png",
+            "surface_finish": "asd",
+            "material_id": 1,
+            "tolerance": 30,
+            "linear": 32,
+            "angular": 40,
+            "size": 70,
+            "volume": 30,
+            "measurement_units_id": 1
+        }
+    },
+    {
+        "model": "item.item",
+        "pk": 2,
+        "fields": {
+            "is_active": true,
+            "created_on": "2023-03-12T21:32:29.349Z",
+            "updated_on": "2023-03-12T21:32:29.349Z",
+            "name": "Arandela",
+            "reference": "0",
+            "plane": "media/Captura_de_pantalla_2023-03-12_132152.png",
+            "surface_finish": "121",
+            "material_id": 1,
+            "tolerance": 122,
+            "linear": 4,
+            "angular": 45,
+            "size": 78,
+            "volume": 2,
+            "measurement_units_id": 1
+        }
+    },
+    {
+        "model": "quote.statusquote",
+        "pk": 5,
+        "fields": {
+            "status_description": "APROBADA"
+        }
+    },
+    {
+        "model": "quote.statusquote",
+        "pk": 6,
+        "fields": {
+            "status_description": "RECHAZADA"
+        }
+    },
+    {
+        "model": "quote.statusquote",
+        "pk": 7,
+        "fields": {
+            "status_description": "EN ESPERA"
+        }
+    },
+    {
+        "model": "quote.quote",
+        "pk": 4,
+        "fields": {
+            "is_active": true,
+            "created_on": "2022-10-27T22:27:24.124Z",
+            "updated_on": "2023-04-23T18:39:53.718Z",
+            "quote_number": "0001",
+            "client_id": 1,
+            "document_employee": 2,
+            "item_id": 1,
+            "quantity": 1,
+            "total_amount": "430000.00",
+            "expiration_date": "2022-11-20",
+            "status_id": 5
+        }
+    },
+    {
+        "model": "quote.quote",
+        "pk": 7,
+        "fields": {
+            "is_active": true,
+            "created_on": "2023-03-12T21:33:43.081Z",
+            "updated_on": "2023-03-12T21:33:43.081Z",
+            "quote_number": "0002",
+            "client_id": 1,
+            "document_employee": 2,
+            "item_id": 2,
+            "quantity": 5,
+            "total_amount": "200000.00",
+            "expiration_date": "2023-01-05",
+            "status_id": 5
+        }
+    },
+    {
+        "model": "employee.position",
+        "pk": 1,
+        "fields": {
+            "position": "TORNERO"
+        }
+    },
+    {
+        "model": "employee.position",
+        "pk": 2,
+        "fields": {
+            "position": "SOLDADOR"
+        }
+    },
+    {
+        "model": "employee.eps",
+        "pk": 1,
+        "fields": {
+            "eps_name": "SANITAS"
+        }
+    },
+    {
+        "model": "employee.eps",
+        "pk": 2,
+        "fields": {
+            "eps_name": "SURA"
+        }
+    },
+    {
+        "model": "employee.employee",
+        "pk": 2,
+        "fields": {
+            "document": "1165498213",
+            "last_name": "Rico",
+            "position": 1,
+            "eps_id": 1,
+            "birthdate": "1999-01-05"
+        }
+    },
+    {
+        "model": "employee.employee",
+        "pk": 5,
+        "fields": {
+            "document": "1165876679",
+            "last_name": "Ruiz",
+            "position": 1,
+            "eps_id": 1,
+            "birthdate": "1999-05-12"
+        }
+    },
+    {
+        "model": "employee.employee",
+        "pk": 6,
+        "fields": {
+            "document": "987654321",
+            "last_name": "Rico",
+            "position": 2,
+            "eps_id": 2,
+            "birthdate": "1996-02-03"
+        }
+    },
+    {
+        "model": "order.orderprocess",
+        "pk": 1,
+        "fields": {
+            "id_process": "to_do",
+            "order_process": "SIN EMPEZAR"
+        }
+    },
+    {
+        "model": "order.orderprocess",
+        "pk": 2,
+        "fields": {
+            "id_process": "on_hold",
+            "order_process": "BLOQUEADO"
+        }
+    },
+    {
+        "model": "order.orderprocess",
+        "pk": 3,
+        "fields": {
+            "id_process": "in_progress",
+            "order_process": "EN PROCESO"
+        }
+    },
+    {
+        "model": "order.orderprocess",
+        "pk": 4,
+        "fields": {
+            "id_process": "done",
+            "order_process": "TERMINADO"
+        }
+    },
+    {
+        "model": "order.orderprocess",
+        "pk": 5,
+        "fields": {
+            "id_process": "pending_payment",
+            "order_process": "PENDIENTE DE PAGO"
+        }
+    },
+    {
+        "model": "order.orderprocess",
+        "pk": 6,
+        "fields": {
+            "id_process": "paid",
+            "order_process": "PAGADA"
+        }
+    },
+    {
+        "model": "order.currency",
+        "pk": 1,
+        "fields": {
+            "currency_name": "COP"
+        }
+    },
+    {
+        "model": "order.paymentmethod",
+        "pk": 1,
+        "fields": {
+            "payment_name": "BANCOLOMBIA"
+        }
+    },
+    {
+        "model": "order.order",
+        "pk": 6,
+        "fields": {
+            "is_active": true,
+            "created_on": "2022-12-04T03:25:44.439Z",
+            "updated_on": "2023-04-25T12:36:04.588Z",
+            "quote_number": 4,
+            "employee_id": 2,
+            "payment_method": 1,
+            "discount": "0.00",
+            "subtotal": "200000.00",
+            "freigth": "0.00",
+            "various_expenses": "0.00",
+            "amount_whitout_vat": "180000.00",
+            "total_amount": "200000.00",
+            "currency": 1,
+            "delivery_address": "San Jose",
+            "status_id": 0,
+            "process_id": 4
+        }
+    },
+    {
+        "model": "order.order",
+        "pk": 7,
+        "fields": {
+            "is_active": true,
+            "created_on": "2023-03-12T16:01:22.972Z",
+            "updated_on": "2023-05-01T18:03:05.409Z",
+            "quote_number": 4,
+            "employee_id": 2,
+            "payment_method": 1,
+            "discount": "0.00",
+            "subtotal": "200000.00",
+            "freigth": "0.00",
+            "various_expenses": "0.00",
+            "amount_whitout_vat": "180000.00",
+            "total_amount": "200000.00",
+            "currency": 1,
+            "delivery_address": "San Jose",
+            "status_id": 1,
+            "process_id": 2
+        }
+    },
+    {
+        "model": "order.order",
+        "pk": 8,
+        "fields": {
+            "is_active": true,
+            "created_on": "2023-03-12T16:01:35.033Z",
+            "updated_on": "2023-04-30T14:46:59.779Z",
+            "quote_number": 4,
+            "employee_id": 2,
+            "payment_method": 1,
+            "discount": "0.00",
+            "subtotal": "200000.00",
+            "freigth": "0.00",
+            "various_expenses": "0.00",
+            "amount_whitout_vat": "180000.00",
+            "total_amount": "300000.00",
+            "currency": 1,
+            "delivery_address": "San Jose",
+            "status_id": 1,
+            "process_id": 3
+        }
+    },
+    {
+        "model": "order.order",
+        "pk": 9,
+        "fields": {
+            "is_active": true,
+            "created_on": "2023-03-12T16:01:39.973Z",
+            "updated_on": "2023-04-30T14:45:39.942Z",
+            "quote_number": 7,
+            "employee_id": 2,
+            "payment_method": 1,
+            "discount": "0.00",
+            "subtotal": "200000.00",
+            "freigth": "0.00",
+            "various_expenses": "0.00",
+            "amount_whitout_vat": "180000.00",
+            "total_amount": "300000.00",
+            "currency": 1,
+            "delivery_address": "San Jose",
+            "status_id": 1,
+            "process_id": 4
+        }
+    },
+    {
+        "model": "order.order",
+        "pk": 10,
+        "fields": {
+            "is_active": true,
+            "created_on": "2023-03-12T16:01:44.525Z",
+            "updated_on": "2023-04-30T14:46:12.270Z",
+            "quote_number": 7,
+            "employee_id": 2,
+            "payment_method": 1,
+            "discount": "0.00",
+            "subtotal": "200000.00",
+            "freigth": "0.00",
+            "various_expenses": "0.00",
+            "amount_whitout_vat": "180000.00",
+            "total_amount": "300000.00",
+            "currency": 1,
+            "delivery_address": "San Jose",
+            "status_id": 1,
+            "process_id": 5
+        }
+    },
+    {
+        "model": "order.order",
+        "pk": 11,
+        "fields": {
+            "is_active": true,
+            "created_on": "2023-03-12T16:01:48.499Z",
+            "updated_on": "2023-04-30T14:46:33.232Z",
+            "quote_number": 7,
+            "employee_id": 2,
+            "payment_method": 1,
+            "discount": "0.00",
+            "subtotal": "200000.00",
+            "freigth": "0.00",
+            "various_expenses": "0.00",
+            "amount_whitout_vat": "180000.00",
+            "total_amount": "300000.00",
+            "currency": 1,
+            "delivery_address": "San Jose",
+            "status_id": 1,
+            "process_id": 6
+        }
+    },
+    {
+        "model": "order.order",
+        "pk": 12,
+        "fields": {
+            "is_active": true,
+            "created_on": "2023-05-01T03:28:11.944Z",
+            "updated_on": "2023-05-01T03:28:11.944Z",
+            "quote_number": 4,
+            "employee_id": 2,
+            "payment_method": 1,
+            "discount": "0.00",
+            "subtotal": "200000.00",
+            "freigth": "0.00",
+            "various_expenses": "0.00",
+            "amount_whitout_vat": "180000.00",
+            "total_amount": "200000.00",
+            "currency": 1,
+            "delivery_address": "San Jose",
+            "status_id": 1,
+            "process_id": 6
+        }
+    },
+    {
+        "model": "tools.statustools",
+        "pk": 1,
+        "fields": {
+            "status": "DISPONIBLE"
+        }
+    },
+    {
+        "model": "tools.statustools",
+        "pk": 2,
+        "fields": {
+            "status": "OCUPADA"
+        }
+    },
+    {
+        "model": "tools.tools",
+        "pk": 1,
+        "fields": {
+            "is_active": true,
+            "created_on": "2022-10-28T05:02:21.684Z",
+            "updated_on": "2022-10-28T05:02:21.684Z",
+            "employee_id": 2,
+            "trademark": "cATERPILA",
+            "dimension": "AS",
+            "status_tool": 1
+        }
+    }
+]

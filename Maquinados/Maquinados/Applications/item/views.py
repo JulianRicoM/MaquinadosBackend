@@ -6,8 +6,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 
-from .models import Item
-from .serializer import ItemSerializer
+from .models import Item, Material, Measurement_units
+from .serializer import ItemSerializer, MaterialSerializer, MeasurementSerializer
 
 """ If the method is POST, the class expects a body of type Item and will create the Item """
 """ If the method is GET the function will return a Item list """
@@ -19,6 +19,27 @@ class ItemList(generics.ListCreateAPIView):
         queryset = self.get_queryset()
         serializer = ItemSerializer(queryset, many = True)
         return Response(serializer.data)
+    
+
+class MaterialList(generics.ListAPIView):
+    serializer_class = MaterialSerializer
+    queryset = Material.objects.all()
+    
+    def list(self, request):
+        queryset = self.get_queryset()
+        serializer = MaterialSerializer(queryset, many = True)
+        return Response(serializer.data)
+    
+
+class Measurement(generics.ListAPIView):    
+    serializer_class = MeasurementSerializer
+    queryset = Measurement_units.objects.all()
+    
+    def List(self, request): 
+        queryset = self.get_queryset()
+        serializer = MeasurementSerializer(queryset, many = True)
+        return Response(serializer.data)
+
 
 """ If the method is GET, the function expects an id and return a Item """
 """ If the method is PUT, the function expect a body of type Item and the Item will be edited """
