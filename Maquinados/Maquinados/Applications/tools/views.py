@@ -31,7 +31,7 @@ class Status(generics.ListCreateAPIView):
 
 # If the method is GET, the function expects an id and return a Tool 
 # If the method is PUT, the function expect a body of type Tool and the Tool will be edited
-@api_view(['GET', 'PUT', 'DELETE'])
+@api_view(['GET', 'PUT','DELETE'])
 def ToolDetails(request, id):
     try:
         tool = Tools.objects.get(pk = id)
@@ -41,6 +41,15 @@ def ToolDetails(request, id):
     if request.method == 'GET':
         serializer = ToolsSerializer(tool, context = {'request': request})
         return Response(status = status.HTTP_200_OK, data = serializer.data)
+    
+    if request.method == 'DELETE':
+        tool.delete()
+        return Response(
+            {
+                'message': 'El cliente fue eliminado satisfactoriamente'
+            },
+            status=status.HTTP_204_NO_CONTENT
+        )
     
     if request.method == 'PUT':
         serializer = ToolsSerializer(tool, data = request.data, context = {'request': request})
