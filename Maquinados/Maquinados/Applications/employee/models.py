@@ -25,8 +25,9 @@ class Employee(Person):
     last_name = models.CharField(verbose_name = _('Last Name'), max_length =20)
     position = models.ForeignKey(Position, on_delete = models.CASCADE, verbose_name = _('Position'))
     eps_id = models.ForeignKey(Eps, on_delete =  models.CASCADE, verbose_name = 'EPS')
-    birthdate = models.DateField(widget=forms.PasswordInput, verbose_name = _('Password'))
-    password = models.Pasw
+    birthdate = models.DateField(verbose_name = 'Birthday')
+    password = models.CharField(verbose_name = _('Password'), max_length = 128)
+
     
     def __str__(self):
         return self.name

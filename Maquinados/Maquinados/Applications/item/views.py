@@ -43,7 +43,7 @@ class Measurement(generics.ListAPIView):
 
 """ If the method is GET, the function expects an id and return a Item """
 """ If the method is PUT, the function expect a body of type Item and the Item will be edited """
-@api_view(['GET', 'PUT'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def ItemDetails(request, id):
     try:
         item =  Item.objects.get(pk = id)
@@ -54,9 +54,27 @@ def ItemDetails(request, id):
         serializer = ItemSerializer(item, context = {'request': request})
         return Response(status = status.HTTP_200_OK, data = serializer.data)
     
+    if request.method == 'DELETE':
+        item.delete()
+        return Response(
+            {
+                'message': 'El cliente fue eliminado satisfactoriamente'
+            },
+            status=status.HTTP_204_NO_CONTENT
+        )
+    
     if request.method == 'PUT':
         serializer = ItemSerializer(item, data = request.data, context = {'request': request})
         
         if serializer.is_valid():
             serializer.save()
             return Response(status = status.HTTP_204_NO_CONTENT, data = serializer.data)
+
+
+
+
+
+
+
+
+        
