@@ -68,6 +68,13 @@ def EmployeeDetails(request, id):
         if serializer.is_valid():
             serializer.save()
             return Response(status = status.HTTP_204_NO_CONTENT, data = serializer.data)
+        
+        return Response(
+            {
+                "detail": serializer.errors,
+                "data": "Ha ocurrido un error, por favor revise los datos.",
+            },
+            status=status.HTTP_400_BAD_REQUEST)
 
     if request.method == 'DELETE':
             employee.delete()
