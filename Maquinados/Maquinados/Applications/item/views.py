@@ -19,7 +19,8 @@ class ItemList(generics.ListCreateAPIView):
         queryset = self.get_queryset()
         serializer = ItemSerializer(queryset, many = True)
         return Response(serializer.data)
-    
+
+
 
 class MaterialList(generics.ListAPIView):
     serializer_class = MaterialSerializer
