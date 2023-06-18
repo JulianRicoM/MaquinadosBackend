@@ -143,6 +143,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'static'
 STATICFILES_DIRS = [
     # Rutas adicionales para archivos estáticos (si es necesario)
+    BASE_DIR / 'static',  # Agrega esta línea
 ]
+
 
 # ...

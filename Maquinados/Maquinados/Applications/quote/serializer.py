@@ -12,9 +12,12 @@ class ListQuoteSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class QuoteSerializer(serializers.ModelSerializer):
+    expiration_date = serializers.DateField(format='%Y-%m-%d')  # Formateo de fecha
+
     class Meta:
         model = Quote
         fields = '__all__'
+
 
 class StatusQuoteSerializer(serializers.ModelSerializer):
     class Meta:

@@ -19,6 +19,7 @@ class Measurement_units(models.Model):
 
 
 class Item(BaseModel):
+    is_active = models.BooleanField(default=True)
     name = models.CharField(verbose_name=_('Name'), max_length=30)
     reference = models.CharField(verbose_name=_('Reference'), max_length=30)
     plane = models.ImageField(upload_to='media')
@@ -27,7 +28,8 @@ class Item(BaseModel):
     tolerance = models.IntegerField(blank=True, null=True, verbose_name=_('Tolerance'))
     linear = models.IntegerField(blank=True, null=True, verbose_name=_('Linear'))
     angular = models.IntegerField(blank=True, null=True, verbose_name=_('Angular'))
-    size = models.IntegerField(verbose_name=_('Size'))
+    size = models.IntegerField(verbose_name=_('Size'), blank=True)
+
     volume = models.IntegerField(verbose_name=_('Volume'))
     measurement_units_id = models.ForeignKey(Measurement_units, on_delete=models.CASCADE)
     
