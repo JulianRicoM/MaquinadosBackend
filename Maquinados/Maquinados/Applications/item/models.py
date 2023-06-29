@@ -30,7 +30,8 @@ class Item(BaseModel):
     angular = models.IntegerField(blank=True, null=True, verbose_name=_('Angular'))
     size = models.IntegerField(verbose_name=_('Size'), blank=True)
 
-    volume = models.IntegerField(verbose_name=_('Volume'))
+    volume = models.IntegerField(verbose_name=_('Volume'), blank=True, null=True)
+
     measurement_units_id = models.ForeignKey(Measurement_units, on_delete=models.CASCADE)
     
     def __str__(self):

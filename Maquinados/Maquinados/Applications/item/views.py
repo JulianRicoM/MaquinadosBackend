@@ -36,7 +36,8 @@ class ItemList(generics.ListCreateAPIView):
                 'size': request.data.get('size'),
                 'volume': request.data.get('volume'),
                 'measurement_units_id': request.data.get('measurement_units_id'),
-                'plane': file  # Asignar el archivo adjunto al campo 'plane'
+                'plane': file,
+                'is_active': True  # Establecer el campo is_active como True
             }
             serializer = ItemSerializer(data=item_data)
             if serializer.is_valid():
@@ -46,6 +47,9 @@ class ItemList(generics.ListCreateAPIView):
                 return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
         return super().post(request, *args, **kwargs)
+
+
+
 
 
 
