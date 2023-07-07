@@ -14,6 +14,8 @@ class EPSSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class EmployeeSerializer(serializers.ModelSerializer):
+    birthdate = serializers.DateField(format='%Y-%m-%d')  # Formateo de fecha
+
     class Meta:
         model = Employee
         fields = '__all__'

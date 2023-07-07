@@ -16,3 +16,5 @@ class MeasurementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Measurement_units
         fields = '__all__'
+
+        
