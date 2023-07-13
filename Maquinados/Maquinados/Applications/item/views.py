@@ -1,5 +1,7 @@
-
+import os
+import base64
 from django.http import Http404
+from PIL import Image
 
 from rest_framework import generics
 from rest_framework import status 
@@ -18,6 +20,22 @@ class ItemList(generics.ListCreateAPIView):
     def list(self, request):
         queryset = self.get_queryset()
         serializer = ItemSerializer(queryset, many = True)
+        
+        data = serializer.data
+        newPath = os.path.abspath(".")
+        current_path = newPath.replace(os.sep, "/")
+        
+        for item in data:     
+            if 'http://localhost:8000/' in item['plane']:
+                item['plane'].replace('http://localhost:8000/', '')
+            
+            image_path = f"{current_path}{item['plane']}"  # Replace with the actual image path 
+            print(image_path)
+            image_data = open(image_path, 'rb').read()
+            base64_image = base64.b64encode(image_data).decode('UTF-8')    
+            item['plane_base64'] = f'data:image/png;base64,{base64_image}'
+            print(item['plane_base64'])
+        
         return Response(serializer.data)
     
 

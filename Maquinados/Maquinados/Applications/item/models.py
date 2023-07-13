@@ -20,7 +20,8 @@ class Measurement_units(models.Model):
 class Item(BaseModel):
     name = models.CharField(verbose_name = _('Name'), max_length = 30)
     reference = models.CharField(verbose_name = ('Reference'), max_length = 30)
-    plane = models.FileField( upload_to = 'media')
+    plane = models.FileField( upload_to = 'media', blank=True, null=True)
+    plane_base64 = models.TextField(verbose_name = ('Reference'), blank=True, null=True)
     surface_finish = models.CharField( verbose_name = _('Surface Finish'), max_length = 15)
     material_id = models.ForeignKey(Material, verbose_name =_("Material Type"), on_delete = models.CASCADE)
     tolerance = models.IntegerField(blank = True, null = True, verbose_name = _('Tolerance'))
